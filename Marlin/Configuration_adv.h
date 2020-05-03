@@ -169,16 +169,16 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
-  #define WATCH_TEMP_PERIOD 90                // Seconds
-  #define WATCH_TEMP_INCREASE 10               // Degrees Celsius
+  #define WATCH_TEMP_PERIOD 90                // Seconds  // Changed CTC i3 Pro B Skr 1.4 turbo increased to 90 to resolve false positive issues
+  #define WATCH_TEMP_INCREASE 10               // Degrees Celsius  // Changed CTC i3 Pro B Skr 1.4 turbo increased to 10 to resolve false positive issues
 #endif
 
 /**
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD        90 // Seconds
-  #define THERMAL_PROTECTION_BED_HYSTERESIS     10 // Degrees Celsius
+  #define THERMAL_PROTECTION_BED_PERIOD        90 // Seconds // Changed CTC i3 Pro B Skr 1.4 turbo increased to 90 to resolve false positive issues
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     10 // Degrees Celsius  // Changed CTC i3 Pro B Skr 1.4 turbo increased to 10 to resolve false positive issues
 
   /**
    * As described above, except for the bed (M140/M190/M303).

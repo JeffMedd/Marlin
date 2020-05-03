@@ -750,7 +750,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 400, 400, 2, 45 } //  Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 300 300 5 25)
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 } //  Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 300 300 5 25).
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -778,8 +778,8 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          1400    // X, Y, Z and E acceleration for printing moves   Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 3000)
-#define DEFAULT_RETRACT_ACCELERATION  2500    // E acceleration for retracts                       Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 3000)
+#define DEFAULT_ACCELERATION          1400    // X, Y, Z and E acceleration for printing moves   Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 3000).  
+#define DEFAULT_RETRACT_ACCELERATION  2500    // E acceleration for retracts                       Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 3000) 
 #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves      Changed for CTC i3 SKR 1.4 Turbo (marlin defaults were 3000)
 
 /**
@@ -825,7 +825,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION // Changed for CTC i3 SKR 1.4 Turbo
+#define S_CURVE_ACCELERATION // Changed for CTC i3 SKR 1.4 Turbo. Enabled
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -876,7 +876,7 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-//#define PROBE_MANUALLY
+#define PROBE_MANUALLY // Changed for CTC i3 Skr 1.4 turbo Enabled 
 //#define MANUAL_PROBE_START_Z 0.2
 
 /**
@@ -972,7 +972,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1220,9 +1220,9 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo Enabled. Previously used
+//#define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo Enabled. Previously used now disabled
 //#define AUTO_BED_LEVELING_UBL
-//#define MESH_BED_LEVELING
+#define MESH_BED_LEVELING  // Changed for CTC i3 Skr 1.4 turbo Enabled 
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
@@ -1316,7 +1316,7 @@
   //===========================================================================
 
   #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited. // Changed for CTC i3 Skr 1.4 turbo Enabled and set to 7 (default is 3)
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
@@ -1327,22 +1327,22 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-// #define LCD_BED_LEVELING // Changed for CTC i3 Skr 1.4 turbo Enabled then disabled. 
+ #define LCD_BED_LEVELING // Changed for CTC i3 Skr 1.4 turbo Enabled
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  //#define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  // #define MESH_EDIT_MENU        // Add a menu to edit mesh points 
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-//#define LEVEL_BED_CORNERS
+#define LEVEL_BED_CORNERS // Changed CTC i3 Pro B Skr 1.4 Turbo. Enabled
 
 #if ENABLED(LEVEL_BED_CORNERS)
   #define LEVEL_CORNERS_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets
   #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
   #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
-  //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
+  // #define LEVEL_CENTER_TOO              // Move to the center after the last corner
 #endif
 
 /**
@@ -1358,8 +1358,8 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS 2 // Changed for CTC i3 Skr 1.4 turbo Enabled
-#define MANUAL_Y_HOME_POS -8 // Changed for CTC i3 Skr 1.4 turbo Enabled
+#define MANUAL_X_HOME_POS -6 // Changed for CTC i3 Skr 1.4 turbo Enabled. Changed to zero zero from 2 following upgrade.
+#define MANUAL_Y_HOME_POS -13 // Changed for CTC i3 Skr 1.4 turbo Enabled Changed to zero zero from -8 following upgrade.
 //#define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
@@ -1371,7 +1371,7 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
 //
-#define Z_SAFE_HOMING // Changed for CTC i3 Skr 1.4 turbo Enabled. Then disabled.
+#define Z_SAFE_HOMING // Changed for CTC i3 Skr 1.4 turbo Enabled.
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing when homing all axes (G28).
@@ -1621,7 +1621,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER // Changed CTC i3 Pro B Skr 1.4 Turbo. Enabled
 
 //=============================================================================
 //============================= LCD and SD support ============================
@@ -1759,7 +1759,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU  // Changed CTC i3 Pro B Skr 1.4 Turbo. Enabled
 
 //
 // SPEAKER/BUZZER
@@ -1767,7 +1767,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//#define SPEAKER
+#define SPEAKER // Changed CTC i3 Pro B Skr 1.4 Turbo. Enabled
 
 //
 // The duration and frequency for the UI feedback sound.
