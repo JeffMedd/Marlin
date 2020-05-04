@@ -29,7 +29,7 @@
 // SD Connection
 //
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION                  LCD
+  #define SDCARD_CONNECTION                  ONBOARD // Changed CTC i3 SKR 1.4 to ONBOARD from LCD
 #endif
 
 //
