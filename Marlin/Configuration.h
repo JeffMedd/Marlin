@@ -104,13 +104,13 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 0 // Changed from 0 for CTC i3 SKR 1.4 Turbo to -1. Changing to 0 to try and fix Octopi serial connection
+#define SERIAL_PORT -1 // Changed from 0 for CTC i3 SKR 1.4 Turbo to -1. Changing to 0 to try and fix Octopi serial connection. CHANGING BACK
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 -1 // Changed for CTC i3 SKR 1.4 Turbo. Enabled and set to 0. Changing to -1 to try and fix Octopi serial connection
+#define SERIAL_PORT_2 0 // Changed for CTC i3 SKR 1.4 Turbo. Enabled and set to 0. Changing to -1 to try and fix Octopi serial connection. CHANGING BACK
 
 /**
  * This setting determines the communication speed of the printer.
@@ -132,7 +132,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Jeff's Upgraded CTC I3 Pro B" // Changed for CTC i3 SKR 1.4 Turbo
+#define CUSTOM_MACHINE_NAME "TEST Jeff's Upgraded CTC I3 Pro B" // Changed for CTC i3 SKR 1.4 Turbo
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -1116,7 +1116,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-#define Z_MIN_POS 0
+#define Z_MIN_POS -3 // Changed for CTC i3 Skr 1.4 turbo to -3 from 0 to allow extra room for mesh bed levelling
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 180 // Changed for CTC i3 Skr 1.4 turbo
@@ -1147,7 +1147,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD // Changed for CTC i3 Skr 1.4 turbo Enabled
 #endif
 
 /**
@@ -1258,8 +1258,8 @@
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
-    #define MESH_TEST_HOTEND_TEMP  205    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
-    #define MESH_TEST_BED_TEMP      60    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_HOTEND_TEMP  250    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_BED_TEMP      80    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
     #define G26_XY_FEEDRATE         20    // (mm/s) Feedrate for XY Moves for the G26 Mesh Validation Tool.
     #define G26_RETRACT_MULTIPLIER   1.0  // G26 Q (retraction) used by default between mesh test elements.
   #endif
@@ -1318,7 +1318,7 @@
   //===========================================================================
 
   #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited. // Changed for CTC i3 Skr 1.4 turbo Enabled and set to 7 (default is 3)
+  #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited. // Changed for CTC i3 Skr 1.4 turbo Enabled and set to 7 (default is 3)
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
@@ -1334,7 +1334,7 @@
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  // #define MESH_EDIT_MENU        // Add a menu to edit mesh points 
+   #define MESH_EDIT_MENU        // Add a menu to edit mesh points  // Changed for CTC i3 Skr 1.4 turbo
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -1344,7 +1344,7 @@
   #define LEVEL_CORNERS_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets
   #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
   #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
-  // #define LEVEL_CENTER_TOO              // Move to the center after the last corner
+  #define LEVEL_CENTER_TOO              // Move to the center after the last corner // Changed for CTC i3 Skr 1.4 turbo
 #endif
 
 /**
@@ -1362,7 +1362,7 @@
 // For DELTA this is the top-center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS -6 // Changed for CTC i3 Skr 1.4 turbo Enabled. Changed to zero zero from 2 following upgrade.
 #define MANUAL_Y_HOME_POS -13 // Changed for CTC i3 Skr 1.4 turbo Enabled Changed to zero zero from -8 following upgrade.
-//#define MANUAL_Z_HOME_POS 0
+#define MANUAL_Z_HOME_POS 0 // Changed for CTC i3 Skr 1.4 turbo Enabled at set to 0. to permit freedom of movement below zero in mesh
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
 //
