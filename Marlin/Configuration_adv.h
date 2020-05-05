@@ -1233,7 +1233,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD // Changed CTC i3 Pro B Skr 1.4 Turbo. Enabled and set to Onboard. This is to enable octoprint firmware flashing.
+  #define SDCARD_CONNECTION ONBOARD // Changed CTC i3 Pro B Skr 1.4 Turbo.Enabled and set to Onboard. This is to enable octoprint firmware flashing.
 
 #endif // SDSUPPORT
 
@@ -1387,7 +1387,7 @@
   //#define CR10_TFT_PINMAP     // Rudolph Riedel's CR10 pin mapping
   //#define S6_TFT_PINMAP       // FYSETC S6 pin mapping
   //#define CHEETAH_TFT_PINMAP  // FYSETC Cheetah pin mapping
-  //#define E3_EXP1_PINMAP      // E3 type boards (SKR E3/DIP, FYSETC Cheetah and Stock boards) EXP1 pin mapping
+  //#define E3_EXP1_PINMAP      // E3 type boards (SKR E3/DIP, FYSETC Cheetah and Stock boards) EXP1 pin mapping 
   //#define GENERIC_EXP2_PINMAP // GENERIC EXP2 pin mapping
 
   //#define OTHER_PIN_LAYOUT  // Define pins manually below
