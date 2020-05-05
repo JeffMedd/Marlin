@@ -1387,7 +1387,11 @@
   //#define CR10_TFT_PINMAP     // Rudolph Riedel's CR10 pin mapping
   //#define S6_TFT_PINMAP       // FYSETC S6 pin mapping
   //#define CHEETAH_TFT_PINMAP  // FYSETC Cheetah pin mapping
+<<<<<<< HEAD
   //#define E3_EXP1_PINMAP      // E3 type boards (SKR E3/DIP, FYSETC Cheetah and Stock boards) EXP1 pin mapping 
+=======
+  //#define E3_EXP1_PINMAP      // E3 type boards (SKR E3/DIP, and Stock boards) EXP1 pin mapping
+>>>>>>> 852a8d6685ec1137eb65e78fa748cae41fbd36b6
   //#define GENERIC_EXP2_PINMAP // GENERIC EXP2 pin mapping
 
   //#define OTHER_PIN_LAYOUT  // Define pins manually below
@@ -2395,10 +2399,17 @@
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
     #define Y_STALL_SENSITIVITY  67 // Changed for CTC I3 Pro B Skr 1.4 Turbo from default of 8 
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
+<<<<<<< HEAD
     // #define Z_STALL_SENSITIVITY  30 // Changed for CTC I3 Pro B Skr 1.4 Turbo from default of 8 and disabled.
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY // Changed for CTC I3 Pro B Skr 1.4 Turbo  disabled.
     //#define Z3_STALL_SENSITIVITY Z_STALL_SENSITIVITY // Changed for CTC I3 Pro B Skr 1.4 Turbo  disabled.
     //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY // Changed for CTC I3 Pro B Skr 1.4 Turbo  disabled.
+=======
+    //#define Z_STALL_SENSITIVITY  8
+    //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
+    //#define Z3_STALL_SENSITIVITY Z_STALL_SENSITIVITY
+    //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY
+>>>>>>> 852a8d6685ec1137eb65e78fa748cae41fbd36b6
     //#define SPI_ENDSTOPS              // TMC2130 only
     #define IMPROVE_HOMING_RELIABILITY   // Changed for CTC I3 Pro B Skr 1.4 Turbo
   #endif
