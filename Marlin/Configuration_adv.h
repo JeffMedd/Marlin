@@ -3329,7 +3329,7 @@
 //
 // M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe
 //
-//#define PINS_DEBUGGING
+#define PINS_DEBUGGING  // Changed CTC i3 Pro B SkR 1.4 Turbo. Enabled to help debug and resolve the inductive probe issue with switching pins
 
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE

@@ -132,7 +132,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "TEST Jeff's Upgraded CTC I3 Pro B" // Changed for CTC i3 SKR 1.4 Turbo
+#define CUSTOM_MACHINE_NAME "CTC i3" __DATE__ " " __TIME__ // Changed for CTC i3 SKR 1.4 Turbo. Added Date and time of build to message.
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -635,7 +635,7 @@
 //#define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
-// #define ENDSTOPPULLUPS // Changed for CTC i3 Pro B to see if this helps with homing
+#define ENDSTOPPULLUPS // Changed for CTC i3 Pro B to see if this helps with homing. Re-enabled to get auto bed levelling to work.
 #if DISABLED(ENDSTOPPULLUPS)
   // Disable ENDSTOPPULLUPS to set pullups individually
   //#define ENDSTOPPULLUP_XMAX
@@ -843,10 +843,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Changed CTC i3 pro B skr v1.4 disabled due to using sensorless homing on z.  later Disabled
+ #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Changed CTC i3 pro B skr v1.4 disabled due to using sensorless homing on z.  later Disabled. Now reenabled.
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING // Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor
 
 /**
  * Z_MIN_PROBE_PIN
@@ -864,7 +864,7 @@
  *      - normally-open switches to 5V and D32.
  *
  */
-//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+#define Z_MIN_PROBE_PIN P2_00 // Pin 32 is the RAMPS default.  Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor set to P2_00 for inductive probe.
 
 /**
  * Probe Type
@@ -878,14 +878,14 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-#define PROBE_MANUALLY // Changed for CTC i3 Skr 1.4 turbo Enabled 
+// #define PROBE_MANUALLY // Changed for CTC i3 Skr 1.4 turbo Enabled . Then Commented out to try and get auto bed levelling to work.
 //#define MANUAL_PROBE_START_Z 0.2
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE
+#define FIX_MOUNTED_PROBE // Changed for CTC i3 Skr 1.4 turbo Enabled 
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -974,11 +974,11 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling
+#define NOZZLE_TO_PROBE_OFFSET { -23, 20, 0 }  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 10
+#define MIN_PROBE_EDGE 0 // Changed for CTC i3 Pro B Skr 1.4 Turbo. Changed from default of 10 to zero.
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -998,7 +998,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3 // Changed for CTC i3 Pro B Skr 1.4 Turbo. Enabled and Changed from default of 2 to three.
 //#define EXTRA_PROBING    1
 
 /**
@@ -1027,7 +1027,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1222,9 +1222,9 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo Enabled. Previously used now disabled
+#define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo Enabled. Previously used now disabled. Re-enabled to try again!
 //#define AUTO_BED_LEVELING_UBL
-#define MESH_BED_LEVELING  // Changed for CTC i3 Skr 1.4 turbo Enabled 
+//#define MESH_BED_LEVELING  // Changed for CTC i3 Skr 1.4 turbo Enabled. Then disabled to get ABL working 
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
@@ -1269,7 +1269,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
