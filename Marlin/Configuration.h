@@ -132,7 +132,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "CTC i3" __DATE__ " " __TIME__ // Changed for CTC i3 SKR 1.4 Turbo. Added Date and time of build to message.
+#define CUSTOM_MACHINE_NAME __DATE__ " " __TIME__ // Changed for CTC i3 SKR 1.4 Turbo. Added Date and time of build to message.
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -843,10 +843,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
- #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Changed CTC i3 pro B skr v1.4 disabled due to using sensorless homing on z.  later Disabled. Now reenabled.
+ // #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Changed CTC i3 pro B skr v1.4 disabled due to using sensorless homing on z.  later Disabled. Now reenabled. Disabled to see get it to pick up the other PIN
 
 // Force the use of the probe for Z-axis homing
-#define USE_PROBE_FOR_Z_HOMING // Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor
+// #define USE_PROBE_FOR_Z_HOMING // Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor. Disabled to try any properly use other pin for homing. 
 
 /**
  * Z_MIN_PROBE_PIN
@@ -974,7 +974,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -23, 20, 0 }  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
+#define NOZZLE_TO_PROBE_OFFSET { -23, 20, -0.153}  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1074,9 +1074,9 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true // Changed for CTC i3 Skr 1.4 turbo
-#define INVERT_Y_DIR false // Changed for CTC i3 Skr 1.4 turbo
-#define INVERT_Z_DIR true // Changed for CTC i3 Skr 1.4 turbo
+#define INVERT_X_DIR true // Changed for CTC i3 Skr 1.4 turbo. set to True
+#define INVERT_Y_DIR false // Changed for CTC i3 Skr 1.4 turbo set to false 
+#define INVERT_Z_DIR true // Changed for CTC i3 Skr 1.4 turbo set to True
 
 // @section extruder
 
@@ -1096,10 +1096,10 @@
 
 //#define UNKNOWN_Z_NO_RAISE      // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ... Changed CTC i3 SkR 1.4 Turbo 
+// #define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ... Changed CTC i3 SkR 1.4 Turbo Thhen disabled
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-#define Z_AFTER_HOMING  4      // (mm) Height to move to after homing Z. Changed CTC I3 SKR 1.4 Turbo. Changed from default of 10 and enabled
+// #define Z_AFTER_HOMING  4      // (mm) Height to move to after homing Z. Changed CTC I3 SKR 1.4 Turbo. Changed from default of 10 and enabled . Then disabled. 
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
@@ -1116,7 +1116,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-#define Z_MIN_POS -3 // Changed for CTC i3 Skr 1.4 turbo to -3 from 0 to allow extra room for mesh bed levelling
+#define Z_MIN_POS 0 // Changed for CTC i3 Skr 1.4 turbo to -3 from 0 to allow extra room for mesh bed levelling. then changed back to 0. 
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 180 // Changed for CTC i3 Skr 1.4 turbo
@@ -1299,7 +1299,7 @@
   //========================= Unified Bed Leveling ============================
   //===========================================================================
 
-  //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
+  #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh  // Changed CTC i3 Pro B Skr 1.4 Enabled
 
   #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
@@ -1496,7 +1496,7 @@
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PETG" // Changed for CTC i3 Skr 1.4 turbo. Added.
-#define PREHEAT_2_TEMP_HOTEND 240    // Changed for CTC i3 Skr 1.4 turbo. Added.
+#define PREHEAT_2_TEMP_HOTEND 250    // Changed for CTC i3 Skr 1.4 turbo. Added.
 #define PREHEAT_2_TEMP_BED    80     // Changed for CTC i3 Skr 1.4 turbo. Added.
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255     // Changed for CTC i3 Skr 1.4 turbo. Added.
 
