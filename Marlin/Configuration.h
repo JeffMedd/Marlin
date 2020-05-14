@@ -599,8 +599,8 @@
  * details can be tuned in Configuration_adv.h
  */
 
-#define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+// #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
+// #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
 // #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber . Changed for CTC i3 SKR 1.4 Turbo Disabled
 
 //===========================================================================
