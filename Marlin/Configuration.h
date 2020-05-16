@@ -128,7 +128,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO // Changed for CTC i3 SKR 1.4 Turbo
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4 // Changed for CTC i3 SKR 1.4 
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -415,7 +415,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 5 // Changed for CTC i3 SKR 1.4 Turbo changed from 1
+#define TEMP_SENSOR_0 1 // Changed for CTC i3 SKR 1.4 Turbo changed from . Then changed back to 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
