@@ -35,7 +35,7 @@
 //
 // Servos
 //
-#define SERVO0_PIN                         P2_00
+// #define SERVO0_PIN                         P2_00 // Changed CTC I3 Pro B SKR 1.4 Disabled as is being used by inductive sensor
 
 //
 // TMC StallGuard DIAG pins
