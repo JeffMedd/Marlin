@@ -482,7 +482,7 @@
 
 #if ENABLED(PIDTEMP)
   //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
-  //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
+  #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM) // Changed CTC i3 Pro B enabled
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
 
@@ -689,15 +689,15 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE TMC2209  // Changed for CTC i3 SKR 1.4 Turbo set 2209
-#define Y_DRIVER_TYPE TMC2209  // Changed for CTC i3 SKR 1.4 Turbo set 2209
-#define Z_DRIVER_TYPE TMC2209  // Changed for CTC i3 SKR 1.4 Turbo set 2209
+#define X_DRIVER_TYPE A4988  // Changed for CTC i3 SKR 1.4 changed drivers to reflect what was sent in package
+#define Y_DRIVER_TYPE A4988  // Changed for CTC i3 SKR 1.4 changed drivers to reflect what was sent in package
+#define Z_DRIVER_TYPE A4988  // Changed for CTC i3 SKR 1.4 changed drivers to reflect what was sent in package
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-#define Z2_DRIVER_TYPE TMC2209  // Changed for CTC i3 SKR 1.4 Turbo set 2209
+#define Z2_DRIVER_TYPE A4988  // Changed for CTC i3 SKR 1.4 changed drivers to reflect what was sent in package
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE TMC2209 // Changed for CTC i3 SKR 1.4 Turbo set 2209
+#define E0_DRIVER_TYPE A4988 //Changed for CTC i3 SKR 1.4 changed drivers to reflect what was sent in package
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -870,7 +870,7 @@
  *      - normally-open switches to 5V and D32.
  *
  */
-#define Z_MIN_PROBE_PIN P2_00 // Pin 32 is the RAMPS default.  Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor set to P2_00 for inductive probe.
+// #define Z_MIN_PROBE_PIN P2_00 // Pin 32 is the RAMPS default.  Changed CTC i3 Pro B Skr Turbo 1.4 Enabled. To help setup inductive sensor set to P2_00 for inductive probe. Then disabled as using endstops
 
 /**
  * Probe Type
@@ -891,7 +891,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-#define FIX_MOUNTED_PROBE // Changed for CTC i3 Skr 1.4 turbo Enabled 
+// #define FIX_MOUNTED_PROBE // Changed for CTC i3 Skr 1.4 turbo Disabled to use z Enstops
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -985,7 +985,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -23, 20, -0.277}  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
+#define NOZZLE_TO_PROBE_OFFSET { -23, 20, 0}  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1038,7 +1038,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-#define Z_MIN_PROBE_REPEATABILITY_TEST
+// #define Z_MIN_PROBE_REPEATABILITY_TEST // disabled Now disabled as using z endstop
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1233,7 +1233,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo Enabled. Previously used now disabled. Re-enabled to try again!
+//define AUTO_BED_LEVELING_BILINEAR // Changed for CTC i3 Skr 1.4 turbo disabled as will be using endstop
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING  // Changed for CTC i3 Skr 1.4 turbo Enabled. Then disabled to get ABL working 
 
@@ -1340,7 +1340,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
- #define LCD_BED_LEVELING // Changed for CTC i3 Skr 1.4 turbo Enabled
+ // #define LCD_BED_LEVELING // Changed for CTC i3 Skr 1.4 turbo Enabled. Disabled as using z endstops
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.

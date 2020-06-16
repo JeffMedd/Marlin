@@ -626,9 +626,8 @@
  * the position of the toolhead relative to the workspace.
  */
 
-#define SENSORLESS_BACKOFF_MM  { 2, 2 }     // (mm) Backoff from endstops before sensorless homing //Changed CTC I3 Pro B Skr 1.4 Turbo Enabled.
-
-#define HOMING_BUMP_MM      { 0, 0, 0 }       // (mm) Backoff from endstops after first bump // Changed CTC i3 Pro B Skr 1.4 Turbo. Chagned from 5,5,2 to 0
+// #define SENSORLESS_BACKOFF_MM  { 2, 2 }     // (mm) Backoff from endstops before sensorless homing //Changed CTC I3 Pro B Skr 1.4 Turbo Enabled. Then disabled as not using sensorless homing
+#define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump // Changed CTC i3 Pro B Skr 1.4 Turbo. Chagned from 5,5,2 to 0. Changed back to reflect using endstops
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 //#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (mm) Backoff from endstops after homing
@@ -1519,7 +1518,7 @@
  *
  * Warning: Does not respect endstops!
  */
-#define BABYSTEPPING // Changed for CTC i3 Pro B Skr 1.3 Enabled
+// #define BABYSTEPPING // Changed for CTC i3 Pro B Skr 1.3 Enabled. Now disabled as using z endstop
 #if ENABLED(BABYSTEPPING)
   //#define INTEGRATED_BABYSTEPPING         // EXPERIMENTAL integration of babystepping into the Stepper ISR
   //#define BABYSTEP_WITHOUT_HOMING

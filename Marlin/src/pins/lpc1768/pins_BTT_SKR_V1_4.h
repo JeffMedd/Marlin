@@ -35,16 +35,16 @@
 //
 // Servos
 //
-// #define SERVO0_PIN                         P2_00 // Changed CTC I3 Pro B SKR 1.4 Disabled as is being used by inductive sensor
+ #define SERVO0_PIN                         P2_00 // Changed CTC I3 Pro B SKR 1.4 Disabled as is being used by inductive sensor. Renabled as using endstops
 
 //
 // TMC StallGuard DIAG pins
 //
 #define X_DIAG_PIN                         P1_29  // X-STOP
 #define Y_DIAG_PIN                         P1_28  // Y-STOP
-// #define Z_DIAG_PIN                         P1_27  // Z-STOP // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled
-// #define E0_DIAG_PIN                        P1_26  // E0DET // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled
-// #define E1_DIAG_PIN                        P1_25  // E1DET // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled
+#define Z_DIAG_PIN                         P1_27  // Z-STOP // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled. Then reenabled as not using sensorless
+#define E0_DIAG_PIN                        P1_26  // E0DET // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled Then reenabled as not using sensorless
+#define E1_DIAG_PIN                        P1_25  // E1DET // Changed CTC i3 SKR 1.4 to swtich off sensorless homing without cutting pins. Disabled Then reenabled as not using sensorless
 
 //
 // Limit Switches
@@ -80,7 +80,7 @@
   #endif
 #else
   #ifndef Z_STOP_PIN
-    #define Z_STOP_PIN                     P2_00  // Z-STOP // Changed CTC i3 Pro B. Desperatly trying to get inductive sensor to work. Changed from P1_27 to P2_00
+    #define Z_STOP_PIN                     P1_27  // Z-STOP // Changed CTC i3 Pro B. Desperatly trying to get inductive sensor to work. Changed from P1_27 to P2_00. Changed back to P1_27 to use endstop
   #endif
 #endif
 
