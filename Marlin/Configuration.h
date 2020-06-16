@@ -599,8 +599,8 @@
  * details can be tuned in Configuration_adv.h
  */
 
-// #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
-// #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
+ #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
+ #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed. Changed cTC i3 Pro B. Disabling to diagnose thermistor issues
 // #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber . Changed for CTC i3 SKR 1.4 Turbo Disabled
 
 //===========================================================================
@@ -974,14 +974,14 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -23, 20, -0.153}  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
+#define NOZZLE_TO_PROBE_OFFSET { -23, 20, -0.277}  // Changed for CTC i3 Skr 1.4 turbo changed to 0 for all for mesh bed levelling.
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
 #define MIN_PROBE_EDGE 0 // Changed for CTC i3 Pro B Skr 1.4 Turbo. Changed from default of 10 to zero.
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 16000 // Changed CTC i3 Pro B changed from 8000 to 16000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1042,12 +1042,12 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+#define PROBING_HEATERS_OFF       // Turn heaters off when probing // Changed CTC  i3 Pro B enabled
 #if ENABLED(PROBING_HEATERS_OFF)
   //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
-//#define PROBING_FANS_OFF          // Turn fans off when probing
-//#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
+#define PROBING_FANS_OFF          // Turn fans off when probing // Changed CTC  i3 Pro B enabled
+#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing // Changed CTC  i3 Pro B enabled
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
@@ -1064,7 +1064,7 @@
 #define DISABLE_Z false
 
 // Warn on display about possibly reduced accuracy
-//#define DISABLE_REDUCED_ACCURACY_WARNING
+#define DISABLE_REDUCED_ACCURACY_WARNING // Changed CTC i3 pro B Skr 1.4 Enabled
 
 // @section extruder
 
@@ -1116,7 +1116,7 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-#define Z_MIN_POS 0 // Changed for CTC i3 Skr 1.4 turbo to -3 from 0 to allow extra room for mesh bed levelling. then changed back to 0. 
+#define Z_MIN_POS -3 // Changed for CTC i3 Skr 1.4 turbo to -3 from 0 to allow extra room for mesh bed levelling. then changed back to 0. Now back to -3
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 180 // Changed for CTC i3 Skr 1.4 turbo
@@ -1230,7 +1230,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-#define RESTORE_LEVELING_AFTER_G28 // Changed for CTC i3 Skr 1.4 turbo Enabled
+// #define RESTORE_LEVELING_AFTER_G28 // Changed for CTC i3 Skr 1.4 turbo Enabled. Disabled to try and fix the ABL issues
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
@@ -1462,6 +1462,7 @@
 #define EEPROM_SETTINGS     // Persistent storage with M500 and M501 Changed for CTC i3 Skr 1.4 turbo Enabled
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
+#define FLASH_EEPROM_EMULATION // Changed for CTC i3 Pro b SKR 1.4 added whole line.
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
   //#define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
